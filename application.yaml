@@ -1,6 +1,13 @@
 spring:
   application:
-  name: config-server
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///${user.home}/Project_stock_management/Microservice/configRepo
+          clone-one-start: true
 
 
 server:
