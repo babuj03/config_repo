@@ -26,7 +26,7 @@ payment:
   service.url : http://localhost:8081/
   
 custom:
- msg: for my first message  
+ msg: for my second message  
   
   
 server:
