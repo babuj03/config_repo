@@ -27,6 +27,13 @@ payment:
   
 custom:
  msg: for my second message  
+ 
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh 
   
   
 server:
