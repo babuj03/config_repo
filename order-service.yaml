@@ -26,7 +26,7 @@ payment:
   service.url : http://localhost:8081/
   
 custom:
- msg: for my second message  
+ msg: for my thrid message  
  
 
 management:
