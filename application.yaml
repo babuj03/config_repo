@@ -13,5 +13,12 @@ management:
         
 
 jwt:
- secret: MysuperSecretKeyForJWT1234567890098765432
- expiration: 3600
+ access:
+  secret: MysuperSecretKeyForJWT1234567890098765432
+  expiration: 3600
+ refresh:
+  secret: MysuperSecrehfeyForJWT1234567890098765432
+  expiration: 3600000
+ roles:
+ admin: ROLE_ADMIN
+ user: ROLE_USER
