@@ -32,6 +32,9 @@ spring:
             #type: com.microtest.PaymentService.dto.OrderEvent
           trusted:
            packages: "*"
+          use:
+	   type:
+	    headers: false 
          deserializer:
           key:
            delegate:
@@ -39,9 +42,9 @@ spring:
           value:
            delegate:
             class: org.springframework.kafka.support.serializer.JsonDeserializer
-	  use:
-	   type:
-	    headers: false
+	  
+	  
+	  
 
 
 
