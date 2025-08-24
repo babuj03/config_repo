@@ -23,9 +23,18 @@ jwt:
  admin: ROLE_ADMIN
  user: ROLE_USER
  
- spring:
+spring:
   kafka:
    bootstrap-servers: localhost:9092
+   consumer:
+     group-id: order-service
+     key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+     value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+     properties:
+       spring.json.trusted.packages: com.microtest.event
+   producer:
+     key-serializer: org.apache.kafka.common.serialization.StringSerializer
+     value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   cloud:
    config:
     override-none: true
@@ -33,6 +42,14 @@ jwt:
 
 app:
   kafka:
-    topic: orders-topic3
+    topic:
+      order: orders-topic3
+      partition: 3
+      replicate: 1
+    dlt:
+      order: orders-topic3.DLT
+      partition: 3
+      replicate: 1  
+    
     
     
