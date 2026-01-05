@@ -17,6 +17,8 @@ spring:
   cloud:
     compatibility-verifier:
       enabled: false
+    config:
+      override-none: true    
 
 
   security:
