@@ -16,23 +16,23 @@ spring:
 
           routes:
             - id: order-service
-            uri: lb://order-service
-            predicates:
-              - Path=/api/v1/order/**
-            filters:
-              - StripPrefix=1
+              uri: lb://order-service
+              predicates:
+                - Path=/api/v1/order/**
+              filters:
+                - StripPrefix=1
             - id: payment-service
-            uri: lb://payment-service
-            predicates:
-              - Path=/api/v1/payment/**
-            filters:
-              - StripPrefix=1   
+              uri: lb://payment-service
+              predicates:
+                - Path=/api/v1/payment/**
+              filters:
+                - StripPrefix=1   
             - id: user-service
-            uri: lb://user-service
-            predicates:
-              - Path=/api/v1/user/**
-            filters:
-              - StripPrefix=1         
+              uri: lb://user-service
+              predicates:
+                - Path=/api/v1/user/**
+              filters:
+                - StripPrefix=1         
 #    compatibility-verifier:
 #      enabled: false    
 #    config:
