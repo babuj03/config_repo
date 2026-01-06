@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: apigateway-service
+    name: api-gateway
     
   cloud:
     gateway:
@@ -15,24 +15,27 @@ spring:
               lower-case-service-id: true
 
           routes:
-            - id: order-service
-              uri: lb://order-service
-              predicates:
-                - Path=/api/v1/order/**
-              filters:
-                - StripPrefix=1
-            - id: payment-service
-              uri: lb://payment-service
-              predicates:
-                - Path=/api/v1/payment/**
-              filters:
-                - StripPrefix=1   
             - id: user-service
               uri: lb://USER-SERVICE
               predicates:
                 - Path=/auth/**
-              filters:
-                - StripPrefix=1         
+              #filters:
+               # - StripPrefix=1   
+                     
+            - id: order-service
+              uri: lb://ORDER-SERVICE
+              predicates:
+                - Path=/api/v1/order/**
+             # filters:
+              #  - StripPrefix=1
+                
+            - id: payment-service
+              uri: lb://PAYMENT-SERVICE
+              predicates:
+                - Path=/api/v1/payment/**
+              #filters:
+               # - StripPrefix=1   
+             
 #    compatibility-verifier:
 #      enabled: false    
 #    config:
