@@ -20,9 +20,17 @@ spring:
     config:
       override-none: true   
       
-  web:
-    cors:
-      allowed-origins: none        
+  #web:
+   # cors:
+    #  allowed-origins: none      
+    
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # For HS256 demo. In prod, prefer JWK set URI / public key.
+          secret-key: MysuperSecretKeyForJWT1234567890098765432dffgdfsgfgsfgsdfgfsfgffgsfg456w5w465w4rggfg4453
+    
 
   kafka:
    bootstrap-servers: localhost:9092
