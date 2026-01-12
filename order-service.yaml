@@ -45,6 +45,10 @@ spring:
      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
  
 
+logging:
+  level:
+    org.springframework.security: DEBUG
+
 app:
   kafka:
     topic:

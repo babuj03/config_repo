@@ -25,16 +25,21 @@ spring:
             - id: order-service
               uri: lb://ORDER-SERVICE
               predicates:
-                - Path=/api/v1/order/**
+                - Path=/internal/v1/orders/**
              # filters:
               #  - StripPrefix=1
                 
             - id: payment-service
               uri: lb://PAYMENT-SERVICE
               predicates:
-                - Path=/api/v1/payment/**
-              #filters:
-               # - StripPrefix=1   
+                - Path=/internal/v1/payment/**
+                
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 10   # tokens per second
+                    redis-rate-limiter.burstCapacity: 20
+                    key-resolver: "#{@userAndRouteKeyResolver}"
              
 #    compatibility-verifier:
 #      enabled: false    
