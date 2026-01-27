@@ -4,34 +4,40 @@ eureka:
       defaultZone: http://eureka:8761/eureka/
  
  
+otel:
+  exporter:
+    otlp:
+      endpoint: http://otel-collector:4317
+      protocol: grpc
  
-
 management:
   tracing:
     sampling:
       probability: 1.0
-  
-  #zipkin:
-   # tracing:
-    #  endpoint: http://localhost:9411/api/v2/spans  
         
   endpoints:
     web:
       exposure:
         include: refresh, health, info, prometheus
-  
-  endpoint:
-    health:
-      show-details: always
+        
       
   metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+
     tags:
       application: ${spring.application.name}          
    
+
+
    
 
-#server:
- #address: 0.0.0.0
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},traceId=%X{traceId},spanId=%X{spanId}]"
+
  
 
 jwt:

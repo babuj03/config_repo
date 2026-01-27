@@ -42,10 +42,11 @@ spring:
                     redis-rate-limiter.burstCapacity: 20
                     key-resolver: "#{@userAndRouteKeyResolver}"
              
-#    compatibility-verifier:
-#      enabled: false    
-#    config:
-#      override-none: true        
+
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:redis}
+      port: ${SPRING_DATA_REDIS_PORT:6379} 
   
   security:
     oauth2:
